@@ -30,12 +30,32 @@ function useForm() {
     ...parse(location.search)
   })
 
+  // console.log(state)
+  // filter: ""
+  // orderBy: "relevance"
+  // printType: "all"
+  // q: "벨로퍼트"
+
+  // parse : 쿼리 문자열을 개체로 구문 분석합니다
+  //console.log((location.search))
+  // result?   <orderBy=relevance&printType=all&q=벨로퍼트> 얘가 location.search임
+
+  //console.log(parse(location.search))
+  // orderBy: "relevance"
+  // printType: "all"
+  // q: "벨로퍼트
+
   function handleRouter(query) {
     const path = stringifyUrl({
       url: '/result',
       query
     })
 
+    // console.log(path)
+    // path : /result?orderBy=relevance&printType=all&q=%EB%B2%A8%EB%A1%9C%ED%8D%BC%ED%8A%B8
+    // ulr: /result
+    // query : ?orderBy=relevance&printType=all&q=%EB%B2%A8%EB%A1%9C%ED%8D%BC%ED%8A%B8
+    //stringifyUrl : URL 쿼리 문자열 구문 분석 및 문자열 화
     history.push(path)
   }
 
@@ -43,6 +63,11 @@ function useForm() {
     e.preventDefault()
 
     const query = flow(omitBy(isEmpty))(state)
+
+    // console.log(query)
+    // orderBy: "relevance"
+    // printType: "all"
+    // q: "벨로퍼트"
 
     handleRouter(query)
   }
@@ -58,20 +83,9 @@ function useForm() {
     })
   }
 
-  function handleSelect(e) {
-    const { name, value } = e.target
-
-    handleChange(e)
-    handleRouter({
-      ...parse(location.search),
-      [name]: value
-    })
-  }
-
   return {
     state,
     handleChange,
-    handleSelect,
     handleSubmit
   }
 }

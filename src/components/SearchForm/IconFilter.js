@@ -1,5 +1,6 @@
 import React from 'react'
 
+//  얘 분리해
 function IconFilter() {
   return (
     <svg

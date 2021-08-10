@@ -5,16 +5,19 @@ import LinkToFilter from './LinkToFilter'
 
 function SearchForm() {
   const location = useLocation()
+
   const { state, handleChange, handleSubmit } = useForm()
 
   return (
     <form onSubmit={handleSubmit} className={styles.wrapper}>
+      {/* fieldset 꼭 필요한가? */}
       <fieldset>
-        <label htmlFor="q" className={styles.label}>
+        <label htmlFor="searchBook" className={styles.label}>
+          <input type="hidden" />
           <span hidden>검색어</span>
           <input
             type="search"
-            id="q"
+            id="searchBook"
             name="q"
             defaultValue={state.q}
             placeholder="제목, 저자, 출판사를 검색해 보세요"
@@ -27,7 +30,6 @@ function SearchForm() {
           검색
         </button>
       </fieldset>
-
       {location.pathname === '/result' && <LinkToFilter />}
     </form>
   )

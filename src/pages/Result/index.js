@@ -6,6 +6,7 @@ import SearchForm from '../../components/SearchForm'
 import Books from '../../components/Books'
 import Pagination from '../../components/Books/Pagination'
 import Stack from '../../components/Stack'
+import LinkToFilter from '../../components/SearchForm/LinkToFilter'
 
 function Result() {
   const dispatch = useDispatch()
@@ -24,6 +25,7 @@ function Result() {
     <div className={styles.wrapper}>
       <Stack gaps={[0, 10, 20, 20]}>
         <SearchForm />
+        <LinkToFilter />
         <Books items={items} />
         <Pagination />
       </Stack>

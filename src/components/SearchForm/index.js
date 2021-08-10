@@ -1,12 +1,8 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
-import useForm from '../../hooks/useForm'
-import LinkToFilter from './LinkToFilter'
+import useSearch from '../../hooks/useSearch'
 
 function SearchForm() {
-  const location = useLocation()
-
-  const { state, handleChange, handleSubmit } = useForm()
+  const { state, handleChange, handleSubmit } = useSearch()
 
   return (
     <form onSubmit={handleSubmit} className={styles.wrapper}>
@@ -30,7 +26,6 @@ function SearchForm() {
           검색
         </button>
       </fieldset>
-      {location.pathname === '/result' && <LinkToFilter />}
     </form>
   )
 }

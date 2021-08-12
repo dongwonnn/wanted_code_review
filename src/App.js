@@ -12,7 +12,7 @@ import store from './store'
 
 function Routes() {
   const location = useLocation()
-  const transitions = useTransition(location, location => location.pathname, {
+  const transitions = useTransition(location, (location) => location.pathname, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 }
